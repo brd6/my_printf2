@@ -5,7 +5,7 @@
 ** Login   <bongol_b@epitech.net>
 **
 ** Started on  Sun Jun 26 11:23:42 2016 Berdrigue Bongolo-Beto
-** Last update Sun Jun 26 21:42:04 2016 Berdrigue Bongolo-Beto
+** Last update Sat Jul  2 00:10:17 2016 Berdrigue Bongolo-Beto
 */
 
 #include "my_printf.h"
@@ -24,15 +24,20 @@ static int	get_tab_index(t_printf *tab, char c)
   return (-1);
 }
 
+static int	check_size_limit()
+{
+  return ((g_prog.is_sprintf == IS_SNPRINTF &&
+	   g_prog.i < g_prog.size_limit) ||
+	  (g_prog.is_sprintf == IS_SPRINTF));
+}
+
 static void	simple_print(char *str, const char *format, int *i)
 {
   if (format[*i] == '%' &&
       format[*i + 1] == ' ' &&
       !check_next_char(&format[*i + 1]))
     {
-      if ((g_prog.is_sprintf == IS_SNPRINTF &&
-	   g_prog.i < g_prog.size_limit) ||
-	  (g_prog.is_sprintf == IS_SPRINTF))
+      if (check_size_limit())
 	printf_my_strcpy("% ", &str[g_prog.i]);
       else
 	printf_my_putstr(g_prog.fd, "% ");
@@ -43,9 +48,7 @@ static void	simple_print(char *str, const char *format, int *i)
     }
   else
     {
-      if ((g_prog.is_sprintf == IS_SNPRINTF &&
-	   g_prog.i < g_prog.size_limit) ||
-	  (g_prog.is_sprintf == IS_SPRINTF))
+      if (check_size_limit())
 	str[g_prog.i] = format[*i];
       else
 	printf_my_putchar(g_prog.fd, format[*i]);

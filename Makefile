@@ -5,7 +5,7 @@
 ## Login   <bongol_b@epitech.net>
 ## 
 ## Started on  Sat Jun 25 21:07:14 2016 Berdrigue Bongolo-Beto
-## Last update Sun Jun 26 20:57:24 2016 Berdrigue Bongolo-Beto
+## Last update Sat Jul  2 00:17:52 2016 Berdrigue Bongolo-Beto
 ##
 
 CC		= 	gcc -g3
@@ -26,6 +26,7 @@ ROOT_DIRECTORY	=	src
 PRINT_SRCS	=	$(ROOT_DIRECTORY)/print/print_nil.c \
 			$(ROOT_DIRECTORY)/print/print_nbr.c \
 			$(ROOT_DIRECTORY)/print/print_char.c \
+			$(ROOT_DIRECTORY)/print/print_percent.c \
 			$(ROOT_DIRECTORY)/print/utils.c \
 			$(ROOT_DIRECTORY)/print/utils2.c \
 
