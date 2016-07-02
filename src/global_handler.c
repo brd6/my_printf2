@@ -5,7 +5,7 @@
 ** Login   <bongol_b@epitech.net>
 **
 ** Started on  Sun Jun 26 11:23:42 2016 Berdrigue Bongolo-Beto
-** Last update Sat Jul  2 00:10:17 2016 Berdrigue Bongolo-Beto
+** Last update Sat Jul  2 19:33:07 2016 Berdrigue Bongolo-Beto
 */
 
 #include "my_printf.h"
@@ -33,26 +33,22 @@ static int	check_size_limit()
 
 static void	simple_print(char *str, const char *format, int *i)
 {
+  char		buff[2];
+
   if (format[*i] == '%' &&
       format[*i + 1] == ' ' &&
       !check_next_char(&format[*i + 1]))
     {
-      if (check_size_limit())
-	printf_my_strcpy("% ", &str[g_prog.i]);
-      else
-	printf_my_putstr(g_prog.fd, "% ");
-      g_prog.i += 2;
+      check_print_limit_size(str, "% ");
       *i = *i + 1;
       skip_char(format, i, ' ');
       *i = *i - 1;
     }
   else
     {
-      if (check_size_limit())
-	str[g_prog.i] = format[*i];
-      else
-	printf_my_putchar(g_prog.fd, format[*i]);
-      g_prog.i++;
+      buff[0] = format[*i];
+      buff[1] = 0;
+      check_print_limit_size(str, buff);
     }
 }
 
@@ -68,8 +64,7 @@ int		global_handler(char *str,
   i = 0;
   while (format && format[i])
     {
-      if (format[i] == '%' && check_format(&format[i]) &&
-	  check_next_char(&format[i + 1]))
+      if (format[i] == '%' && format[i + 1] && check_next_char(&format[i + 1]))
 	{
 	  if (!init_ptf_format(format, &i, &ptf_format))
 	    return ((g_prog.i = -1));

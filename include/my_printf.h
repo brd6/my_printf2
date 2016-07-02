@@ -5,7 +5,7 @@
 ** Login   <bongol_b@epitech.net>
 **
 ** Started on  Sat Jun 25 21:30:03 2016 Berdrigue Bongolo-Beto
-** Last update Sat Jul  2 00:16:47 2016 Berdrigue Bongolo-Beto
+** Last update Sat Jul  2 12:41:28 2016 Berdrigue Bongolo-Beto
 */
 
 #ifndef MY_PRINTF_H_
@@ -103,6 +103,7 @@ void		check_width_and_precision2(int *wd,
 					   int *lp,
 					   char *s,
 					   t_ptf_format *ptf);
+int		check_print_limit_size(char *str, const char *s);
 
 int		print_nil(char *str, va_list ap, t_ptf_format *format);
 int		print_nbr(char *str, va_list ap, t_ptf_format *format);
