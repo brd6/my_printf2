@@ -5,7 +5,7 @@
 ** Login   <bongol_b@epitech.net>
 **
 ** Started on  Sun Jun 26 11:23:42 2016 Berdrigue Bongolo-Beto
-** Last update Sat Jul  2 19:33:07 2016 Berdrigue Bongolo-Beto
+** Last update Sun Jul  3 11:51:12 2016 Berdrigue Bongolo-Beto
 */
 
 #include "my_printf.h"
@@ -22,13 +22,6 @@ static int	get_tab_index(t_printf *tab, char c)
       i++;
     }
   return (-1);
-}
-
-static int	check_size_limit()
-{
-  return ((g_prog.is_sprintf == IS_SNPRINTF &&
-	   g_prog.i < g_prog.size_limit) ||
-	  (g_prog.is_sprintf == IS_SPRINTF));
 }
 
 static void	simple_print(char *str, const char *format, int *i)

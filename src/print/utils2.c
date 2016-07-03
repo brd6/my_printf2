@@ -5,20 +5,38 @@
 ** Login   <bongol_b@epitech.net>
 **
 ** Started on  Sun Jun 26 20:56:00 2016 Berdrigue Bongolo-Beto
-** Last update Sun Jun 26 21:09:07 2016 Berdrigue Bongolo-Beto
+** Last update Sun Jul  3 00:37:14 2016 Berdrigue Bongolo-Beto
 */
 
 #include "my_printf.h"
 
-int		print_nchar(char c, int n)
+int		print_nchar(char c, int n, char *str)
 {
   int		i;
 
   i = 0;
   while (i < n)
     {
-      i += printf_my_putchar(g_prog.fd, c);
+      if (str == NULL)
+	i += printf_my_putchar(g_prog.fd, c);
+      else
+	{
+	  str[g_prog.i++] = c;
+	  i++;
+	}
     }
   n = (n < 0) ? 0 : n;
   return (n);
+}
+
+int		nbr_space_handler(t_ptf_format *format,
+				  int nbr,
+				  t_print_elem *elem,
+				  char *str)
+{
+  elem->buff[1] = 0;
+  elem->buff[0] = ' ';
+  if (getchar_pos(format->flags, ' ') != -1 && nbr > 0)
+    return (check_print_limit_size(str, elem->buff));
+  return (0);
 }

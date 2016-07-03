@@ -5,7 +5,7 @@
 ** Login   <bongol_b@epitech.net>
 **
 ** Started on  Sun Jun 26 20:28:58 2016 Berdrigue Bongolo-Beto
-** Last update Sun Jun 26 20:54:36 2016 Berdrigue Bongolo-Beto
+** Last update Sun Jul  3 11:20:49 2016 Berdrigue Bongolo-Beto
 */
 
 #include "my_printf.h"
@@ -46,32 +46,30 @@ void		check_width(int *width, int cp)
     *width = 0;
 }
 
-void		check_width_and_precision(int *wd,
-					  int *lp,
+void		check_width_and_precision(t_print_elem *elem,
 					  int nbr,
 					  t_ptf_format *ptf_f)
 {
-  if (*lp > printf_nbr_len(nbr))
-    *lp = *lp - printf_nbr_len(nbr);
+  if (elem->len_precision > printf_nbr_len(nbr))
+    elem->len_precision = elem->len_precision - printf_nbr_len(nbr);
   else
-    *lp = 0;
-  if (*wd > (printf_nbr_len(nbr) + *lp))
-    *wd = *wd - (printf_nbr_len(nbr) + *lp);
+    elem->len_precision = 0;
+  if (elem->width > (printf_nbr_len(nbr) + elem->len_precision))
+    elem->width = elem->width - (printf_nbr_len(nbr) + elem->len_precision);
   else
-    *wd = 0;
+    elem->width = 0;
 }
 
-void		check_width_and_precision2(int *wd,
-					   int *lp,
+void		check_width_and_precision2(t_print_elem *elem,
 					   char *s,
 					   t_ptf_format *ptf)
 {
-  if (*lp > printf_my_strlen(s))
-    *lp = *lp - printf_my_strlen(s);
+  if (elem->len_precision > printf_my_strlen(s))
+    elem->len_precision = elem->len_precision - printf_my_strlen(s);
   else
-    *lp = 0;
-  if (*wd > (printf_my_strlen(s) + *lp))
-    *wd = *wd - (printf_my_strlen(s) + *lp);
+    elem->len_precision = 0;
+  if (elem->len_precision > (printf_my_strlen(s) + elem->len_precision))
+    elem->width = elem->width - (printf_my_strlen(s) + elem->len_precision);
   else
-    *wd = 0;
+    elem->width = 0;
 }

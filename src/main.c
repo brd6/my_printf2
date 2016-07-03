@@ -5,7 +5,7 @@
 ** Login   <bongol_b@epitech.net>
 **
 ** Started on  Sat Jun 25 21:10:21 2016 Berdrigue Bongolo-Beto
-** Last update Sat Jul  2 19:30:34 2016 Berdrigue Bongolo-Beto
+** Last update Sun Jul  3 11:55:22 2016 Berdrigue Bongolo-Beto
 */
 
 #include <stdlib.h>
@@ -20,10 +20,10 @@ int		main()
   s = NULL;
   buff[0] = 0;
   /* ret = my_printf("abc %c ok", 'c'); */
-  ret = my_printf("azc % y", 'c');
+  ret = my_printf("'azc '%3c''", 'a');
   printf("\nret: %d '%s'\n", ret, buff);
 
-  ret = printf("azc % y", 'c');
+  ret = printf("'azc '%3c''", 'a');
   printf("\nret: %d '%s'\n", ret, buff);
 
   /* ret = printf("abc %c ok", 'c'); */

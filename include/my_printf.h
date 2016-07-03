@@ -5,7 +5,7 @@
 ** Login   <bongol_b@epitech.net>
 **
 ** Started on  Sat Jun 25 21:30:03 2016 Berdrigue Bongolo-Beto
-** Last update Sat Jul  2 12:41:28 2016 Berdrigue Bongolo-Beto
+** Last update Sun Jul  3 11:21:03 2016 Berdrigue Bongolo-Beto
 */
 
 #ifndef MY_PRINTF_H_
@@ -35,6 +35,14 @@ typedef struct	s_ptf_format
   char		length_modifier;
   char		conv_char;
 }		t_ptf_format;
+
+typedef struct	s_print_elem
+{
+  char		buff[2];
+  char		*s;
+  int		width;
+  int		len_precision;
+}		t_print_elem;
 
 typedef struct	s_printf
 {
@@ -95,15 +103,17 @@ void		set_width(int *width,
 			  va_list ap);
 int		set_prec_len(int *len, t_ptf_format *ptf_format, va_list ap);
 void		check_width(int *width, int cp);
-void		check_width_and_precision(int *wd,
-					  int *lp,
+void		check_width_and_precision(t_print_elem *elem,
 					  int nbr,
 					  t_ptf_format *ptf_f);
-void		check_width_and_precision2(int *wd,
-					   int *lp,
+void		check_width_and_precision2(t_print_elem *elem,
 					   char *s,
 					   t_ptf_format *ptf);
 int		check_print_limit_size(char *str, const char *s);
+int		nbr_space_handler(t_ptf_format *format,
+				  int nbr,
+				  t_print_elem *elem,
+				  char *str);
 
 int		print_nil(char *str, va_list ap, t_ptf_format *format);
 int		print_nbr(char *str, va_list ap, t_ptf_format *format);
@@ -117,7 +127,7 @@ int		is_num(char c, int flag);
 int		is_alpha(char c, int flag);
 void		skip_char(const char *str, int *i, char c);
 int		getchar_pos(const char *str, char c);
-int		print_nchar(char c, int n);
+int		print_nchar(char c, int n, char *str);
 
 /*
 ** Lib
