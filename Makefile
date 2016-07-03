@@ -5,10 +5,30 @@
 ## Login   <bongol_b@epitech.net>
 ## 
 ## Started on  Sat Jun 25 21:07:14 2016 Berdrigue Bongolo-Beto
-## Last update Sat Jul  2 00:17:52 2016 Berdrigue Bongolo-Beto
+## Last update Mon Jul  4 00:12:16 2016 Berdrigue Bongolo-Beto
 ##
 
-CC		= 	gcc -g3
+VERSION		=	RELEASE # DEBUG || RELEASE || PROFILE
+
+DEBUG_CFLAGS	=	-g3 #-DDEBUG || -DNDEBUG
+
+PROFILE_CFLAGS	=	-pg
+
+RELEASE_CFLAGS	=	-W -Wall -Wextra -Werror
+
+ifeq "$(VERSION)" "PROFILE"
+	CFLAGS = $(PROFILE_CFLAGS)
+else
+ifeq "$(VERSION)" "DEBUG"
+	CFLAGS = $(DEBUG_CFLAGS)
+else
+ifeq "$(VERSION)" "RELEASE"
+	CFLAGS = $(RELEASE_CFLAGS)
+endif
+endif
+endif
+
+CC		= 	gcc
 
 RM		= 	rm -f
 
@@ -18,10 +38,9 @@ RAN		=	ranlib
 
 TEST_NAME	= 	test
 
-NAME		=	my_printf.a
+NAME		=	libmy_printf.a
 
 ROOT_DIRECTORY	=	src
-
 
 PRINT_SRCS	=	$(ROOT_DIRECTORY)/print/print_nil.c \
 			$(ROOT_DIRECTORY)/print/print_nbr.c \
@@ -51,7 +70,7 @@ SRCS		= 	$(ROOT_DIRECTORY)/printf_handler.c \
 			$(ROOT_DIRECTORY)/utils.c \
 
 TEST_SRCS	=	$(ROOT_DIRECTORY)/main.c \
-			$(SRCS)
+			#$(SRCS)
 
 OBJS		= 	$(SRCS:.c=.o)
 
@@ -61,17 +80,16 @@ TEST_OBJS	= 	$(TEST_SRCS:.c=.o)
 
 CFLAGS		+=	-I./include/
 
-LDFLAGS +=	-L./ -lmy_printf
+LDFLAGS 	+=	-L./ -lmy_printf
 
 all: $(NAME) test
 
 $(NAME): $(OBJS)
-	@$(AR) $(LIBNAME) $(OBJS)
-	@$(RAN) $(LIBNAME)
+	@$(AR) $(NAME) $(OBJS)
+	@$(RAN) $(NAME)
 
 test: $(TEST_OBJS)
-	$(CC) $(TEST_OBJS) -o $(TEST_NAME) #$(LDFLAGS)
-
+	@$(CC) $(TEST_OBJS) -o $(TEST_NAME) $(LDFLAGS)
 clean:
 	@$(RM) $(OBJS)
 	@$(RM) $(TEST_OBJS)
