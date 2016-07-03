@@ -5,7 +5,7 @@
 ** Login   <bongol_b@epitech.net>
 **
 ** Started on  Sun Jun 26 11:40:25 2016 Berdrigue Bongolo-Beto
-** Last update Sun Jul  3 14:37:28 2016 Berdrigue Bongolo-Beto
+** Last update Sun Jul  3 14:44:10 2016 Berdrigue Bongolo-Beto
 */
 
 #include <stdlib.h>
@@ -67,7 +67,28 @@ static int	nbr_precision_handler(t_print_elem *elem,
 				      int nbr, t_ptf_format *format,
 				      char *str)
 {
+  int		cp;
 
+  cp = 0;
+  if ((getchar_pos(format->flags, '+') != -1 && nbr < 0) || nbr < 0)
+    {
+      elem->buff[0] = '-';
+      check_print_limit_size(str, elem->buff);
+      nbr = nbr * -1;
+      elem->width = elem->width - 1;
+      cp = cp + 1;
+    }
+  else if (getchar_pos(format->flags, '+') != -1 && nbr > 0)
+    {
+      elem->buff[0] = '+';
+      check_print_limit_size(str, elem->buff);
+    }
+  nbr_space_handler(format, nbr, elem, str);
+  cp = cp + print_nchar('0', elem->len_precision, str);
+  elem->s = printf_my_itoa(nbr);
+  check_print_limit_size(str, elem->s);
+  cp = cp + print_nchar(' ', elem->width, str);
+  return (cp);
 }
 
 int		print_nbr(char *str, va_list ap, t_ptf_format *format)
