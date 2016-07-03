@@ -5,7 +5,7 @@
 ** Login   <bongol_b@epitech.net>
 **
 ** Started on  Sun Jun 26 20:56:00 2016 Berdrigue Bongolo-Beto
-** Last update Sun Jul  3 00:37:14 2016 Berdrigue Bongolo-Beto
+** Last update Sun Jul  3 14:03:19 2016 Berdrigue Bongolo-Beto
 */
 
 #include "my_printf.h"
@@ -26,6 +26,8 @@ int		print_nchar(char c, int n, char *str)
 	}
     }
   n = (n < 0) ? 0 : n;
+  if (str == NULL)
+    g_prog.i += n;
   return (n);
 }
 
