@@ -5,7 +5,7 @@
 ** Login   <bongol_b@epitech.net>
 **
 ** Started on  Sun Jun 26 11:40:25 2016 Berdrigue Bongolo-Beto
-** Last update Sun Jul  3 14:03:39 2016 Berdrigue Bongolo-Beto
+** Last update Sun Jul  3 14:37:28 2016 Berdrigue Bongolo-Beto
 */
 
 #include <stdlib.h>
@@ -38,16 +38,13 @@ static int	pnbr_sd(t_ptf_format *format,
 {
   int		cp;
 
-  cp = 0;
-  elem->buff[1] = 0;
   set_mod_len_p(format, elem, *nbr);
-  if (getchar_pos(format->flags, '+') != -1 || *nbr < 0)
+  if ((cp = 0) == 0 && (getchar_pos(format->flags, '+') != -1 || *nbr < 0))
     {
       elem->width = elem->width - 1;
-      cp = cp + 1;
+      g_prog.i += (++cp);
     }
-  g_prog.i += cp;
-  cp = cp + print_nchar(' ', elem->width, str);
+  cp += print_nchar(' ', elem->width, str);
   if ((getchar_pos(format->flags, '+') != -1 && *nbr < 0) || *nbr < 0)
     {
       elem->buff[0] = '-';
@@ -59,11 +56,18 @@ static int	pnbr_sd(t_ptf_format *format,
       elem->buff[0] = '+';
       check_print_limit_size(str, elem->buff);
     }
-  nbr_space_handler(format, *nbr, elem, str);
-  cp = cp + print_nchar('0', elem->len_precision, str);
+  cp += nbr_space_handler(format, *nbr, elem, str) +
+    print_nchar('0', elem->len_precision, str);
   elem->s = printf_my_itoa(*nbr);
   check_print_limit_size(str, elem->s);
   return (free(elem->s), cp);
+}
+
+static int	nbr_precision_handler(t_print_elem *elem,
+				      int nbr, t_ptf_format *format,
+				      char *str)
+{
+
 }
 
 int		print_nbr(char *str, va_list ap, t_ptf_format *format)
@@ -84,9 +88,10 @@ int		print_nbr(char *str, va_list ap, t_ptf_format *format)
   cp = printf_nbr_len(nbr);
   elem.width = (elem.width > printf_nbr_len(nbr) ? elem.width : 0);
   check_width_and_precision(&elem, nbr, format);
-  /* if (getchar_pos(format->flags, '-') != -1) */
-  /*   cp = cp + nbr_precision_handler(&elem, nbr_bak, format, str); */
-  /* else */
+  elem.buff[1] = 0;
+  if (getchar_pos(format->flags, '-') != -1)
+    cp = cp + nbr_precision_handler(&elem, nbr_bak, format, str);
+  else
     cp = cp + pnbr_sd(format, &nbr_bak, &elem, str);
-    return (cp);
+  return (cp);
 }

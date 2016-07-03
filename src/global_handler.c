@@ -5,9 +5,10 @@
 ** Login   <bongol_b@epitech.net>
 **
 ** Started on  Sun Jun 26 11:23:42 2016 Berdrigue Bongolo-Beto
-** Last update Sun Jul  3 11:51:12 2016 Berdrigue Bongolo-Beto
+** Last update Sun Jul  3 14:24:36 2016 Berdrigue Bongolo-Beto
 */
 
+#include <stdlib.h>
 #include "my_printf.h"
 
 static int	get_tab_index(t_printf *tab, char c)
@@ -45,6 +46,12 @@ static void	simple_print(char *str, const char *format, int *i)
     }
 }
 
+static void	free_ptf_format(t_ptf_format *format)
+{
+  free(format->field_width);
+  free(format->precision);
+}
+
 int		global_handler(char *str,
 			       const char *format,
 			       va_list ap,
@@ -63,6 +70,7 @@ int		global_handler(char *str,
 	    return ((g_prog.i = -1));
 	  if ((index = get_tab_index(tab, ptf_format.conv_char)) != -1)
 	    tab[index].func(str, ap, &ptf_format);
+	  free_ptf_format(&ptf_format);
 	}
       else
 	simple_print(str, format, &i);
