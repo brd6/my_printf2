@@ -5,7 +5,7 @@
 ** Login   <bongol_b@epitech.net>
 **
 ** Started on  Sat Jun 25 21:30:03 2016 Berdrigue Bongolo-Beto
-** Last update Mon Jul  4 20:27:45 2016 Berdrigue Bongolo-Beto
+** Last update Mon Jul  4 21:27:12 2016 Berdrigue Bongolo-Beto
 */
 
 #ifndef MY_PRINTF_H_
@@ -144,5 +144,11 @@ int		printf_my_putstr(int fd, const char *s);
 int		printf_my_putchar(int fd, char c);
 int		printf_my_atoi(const char *nbr);
 int		printf_nbr_len(int nb);
+int		printf_my_getnbr_base(const char *str, const char *base);
+char		*printf_convert_base(const char *nbr,
+				     const char *base_from,
+				     const char *base_to);
+char		*printf_my_revstr(char *s);
+
 
 #endif /* !MY_PRINTF_H_ */

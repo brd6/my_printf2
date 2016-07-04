@@ -5,7 +5,7 @@
 ## Login   <bongol_b@epitech.net>
 ## 
 ## Started on  Sat Jun 25 21:07:14 2016 Berdrigue Bongolo-Beto
-## Last update Mon Jul  4 20:36:14 2016 Berdrigue Bongolo-Beto
+## Last update Mon Jul  4 21:27:42 2016 Berdrigue Bongolo-Beto
 ##
 
 VERSION		=	RELEASE # DEBUG || RELEASE || PROFILE
@@ -59,6 +59,9 @@ MINILIB_SRCS	=	$(ROOT_DIRECTORY)/lib/printf_my_strdup.c \
 			$(ROOT_DIRECTORY)/lib/printf_my_atoi.c \
 			$(ROOT_DIRECTORY)/lib/printf_nbr_len.c \
 			$(ROOT_DIRECTORY)/lib/printf_my_strndup.c \
+			$(ROOT_DIRECTORY)/lib/printf_my_getnbr_base.c \
+			$(ROOT_DIRECTORY)/lib/printf_convert_base.c \
+			$(ROOT_DIRECTORY)/lib/printf_my_revstr.c \
 
 SRCS		= 	$(ROOT_DIRECTORY)/printf_handler.c \
 			$(ROOT_DIRECTORY)/sprintf_handler.c \
