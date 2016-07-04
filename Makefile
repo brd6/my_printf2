@@ -5,7 +5,7 @@
 ## Login   <bongol_b@epitech.net>
 ## 
 ## Started on  Sat Jun 25 21:07:14 2016 Berdrigue Bongolo-Beto
-## Last update Mon Jul  4 00:12:16 2016 Berdrigue Bongolo-Beto
+## Last update Mon Jul  4 20:36:14 2016 Berdrigue Bongolo-Beto
 ##
 
 VERSION		=	RELEASE # DEBUG || RELEASE || PROFILE
@@ -42,10 +42,10 @@ NAME		=	libmy_printf.a
 
 ROOT_DIRECTORY	=	src
 
-PRINT_SRCS	=	$(ROOT_DIRECTORY)/print/print_nil.c \
-			$(ROOT_DIRECTORY)/print/print_nbr.c \
+PRINT_SRCS	=	$(ROOT_DIRECTORY)/print/print_nbr.c \
 			$(ROOT_DIRECTORY)/print/print_char.c \
 			$(ROOT_DIRECTORY)/print/print_percent.c \
+			$(ROOT_DIRECTORY)/print/print_str.c \
 			$(ROOT_DIRECTORY)/print/utils.c \
 			$(ROOT_DIRECTORY)/print/utils2.c \
 
@@ -58,6 +58,7 @@ MINILIB_SRCS	=	$(ROOT_DIRECTORY)/lib/printf_my_strdup.c \
 			$(ROOT_DIRECTORY)/lib/printf_my_putstr.c \
 			$(ROOT_DIRECTORY)/lib/printf_my_atoi.c \
 			$(ROOT_DIRECTORY)/lib/printf_nbr_len.c \
+			$(ROOT_DIRECTORY)/lib/printf_my_strndup.c \
 
 SRCS		= 	$(ROOT_DIRECTORY)/printf_handler.c \
 			$(ROOT_DIRECTORY)/sprintf_handler.c \

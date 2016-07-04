@@ -5,7 +5,7 @@
 ** Login   <bongol_b@epitech.net>
 **
 ** Started on  Sat Jun 25 21:30:03 2016 Berdrigue Bongolo-Beto
-** Last update Mon Jul  4 00:16:33 2016 Berdrigue Bongolo-Beto
+** Last update Mon Jul  4 20:27:45 2016 Berdrigue Bongolo-Beto
 */
 
 #ifndef MY_PRINTF_H_
@@ -23,6 +23,8 @@
 
 # define ALLOW_FORMAT		"diouxXcsSpnb-+*.hl#%"
 # define MY_PRINTF_TAB_SIZE	12
+
+# define STR_NULL_FLG		"(null)"
 
 # include <stddef.h>
 # include <stdarg.h>
@@ -134,6 +136,7 @@ int		print_nchar(char c, int n, char *str);
 */
 int		printf_my_strlen(const char *s);
 char		*printf_my_strdup(const char *s);
+char		*printf_my_strndup(const char *s, int n);
 char		*printf_my_getstr(const char *s, int (*cmp)(char));
 char		*printf_my_itoa(int nbr);
 char		*printf_my_strcpy(const char *src, char *str);
