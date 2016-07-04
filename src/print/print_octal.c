@@ -5,10 +5,10 @@
 ** Login   <bongol_b@epitech.net>
 **
 ** Started on  Mon Jul  4 20:45:52 2016 Berdrigue Bongolo-Beto
-** Last update Mon Jul  4 20:45:58 2016 Berdrigue Bongolo-Beto
+** Last update Mon Jul  4 22:32:14 2016 Berdrigue Bongolo-Beto
 */
 
-
+#include <stdlib.h>
 #include "my_printf.h"
 
 static char	*init_var_arg_string(va_list ap, t_print_elem *elem)
@@ -24,30 +24,73 @@ static char	*init_var_arg_string(va_list ap, t_print_elem *elem)
   return (s);
 }
 
+static int	prt_cond(t_print_elem *elem,
+			 char *s,
+			 char *str,
+			 t_ptf_format *format)
+{
+  int		cp;
+
+  cp = 0;
+  if (getchar_pos(format->flags, '#') != -1 && elem->len_precision == 0)
+    {
+      elem->buff[0] = '0';
+      cp += check_print_limit_size(str, elem->buff);
+      elem->width--;
+    }
+  else
+    cp += print_nchar('0', elem->len_precision, str);
+  check_print_limit_size(str, s);
+  cp += print_nchar(' ', elem->width, str);
+  return (cp);
+}
+
+static int	prt_cond2(t_print_elem *elem,
+			  char *s,
+			  char *str,
+			  t_ptf_format *format)
+{
+  int		cp;
+
+  cp = 0;
+  if (getchar_pos(format->flags, '#') != -1 && elem->len_precision == 0)
+    elem->width--;
+  cp += print_nchar(' ', elem->width, str);
+  if (getchar_pos(format->flags, '#') != -1 && elem->len_precision == 0)
+    {
+      elem->buff[0] = '0';
+      cp += check_print_limit_size(str, elem->buff);
+    }
+  else
+    cp += print_nchar('0', elem->len_precision, str);
+  check_print_limit_size(str, s);
+  return (cp);
+}
+
 int		print_octal(char *str, va_list ap, t_ptf_format *format)
 {
   t_print_elem	elem;
+  unsigned int	nbr;
   int		cp;
   int		res_set_prec;
   char		*s;
+  char		*s2;
 
+  elem.buff[1] = 0;
+  nbr = va_arg(ap, unsigned int);
   set_width(&elem.width, format, ap);
   res_set_prec = set_prec_len(&elem.len_precision, format, ap);
-  s = init_var_arg_string(ap, &elem);
+  s2 = printf_my_itoa(nbr);
+  s = printf_convert_base(s2, BASE_DECIMAL, BASE_OCTAL);
   cp = printf_my_strlen(s);
-  if (!res_set_prec)
-    res_set_prec = cp;
-  cp = (elem.len_precision > cp) ? cp : elem.len_precision;
-  check_width(&elem.width, cp);
+  if (!res_set_prec || elem.len_precision < cp)
+    elem.len_precision = 0;
+  elem.width = (elem.width > cp) ? elem.width : 0;
+  cp = printf_my_strlen(s);
+  check_width_and_precision2(&elem, s, format);
   if (getchar_pos(format->flags, '-') != -1)
-    {
-      check_print_limit_size(str, s);
-      cp += print_nchar(' ', elem.width - elem.len_precision, str);
-    }
+    cp = cp + prt_cond(&elem, s, str, format);
   else
-    {
-      cp += print_nchar(' ', elem.width - elem.len_precision, str);
-      check_print_limit_size(str, s);
-    }
-  return (cp);
+    cp = cp + prt_cond2(&elem, s, str, format);
+  return (free(s), cp);
 }

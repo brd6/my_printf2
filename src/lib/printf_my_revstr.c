@@ -5,18 +5,18 @@
 ** Login   <bongol_b@epitech.net>
 **
 ** Started on  Mon Jul  4 21:23:31 2016 Berdrigue Bongolo-Beto
-** Last update Mon Jul  4 21:27:02 2016 Berdrigue Bongolo-Beto
+** Last update Mon Jul  4 22:31:01 2016 Berdrigue Bongolo-Beto
 */
 
 #include "my_printf.h"
 
 static void	str_swap(char *a, char *b)
 {
-  char		*tmp;
+  char		tmp;
 
-  tmp = a;
-  a = b;
-  b = tmp;
+  tmp = *a;
+  *a = *b;
+  *b = tmp;
 }
 
 char		*printf_my_revstr(char *s)

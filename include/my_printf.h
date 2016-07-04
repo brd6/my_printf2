@@ -5,7 +5,7 @@
 ** Login   <bongol_b@epitech.net>
 **
 ** Started on  Sat Jun 25 21:30:03 2016 Berdrigue Bongolo-Beto
-** Last update Mon Jul  4 21:27:12 2016 Berdrigue Bongolo-Beto
+** Last update Mon Jul  4 21:58:33 2016 Berdrigue Bongolo-Beto
 */
 
 #ifndef MY_PRINTF_H_
@@ -25,6 +25,8 @@
 # define MY_PRINTF_TAB_SIZE	12
 
 # define STR_NULL_FLG		"(null)"
+# define BASE_DECIMAL		"0123456789"
+# define BASE_OCTAL		"01234567"
 
 # include <stddef.h>
 # include <stdarg.h>
@@ -121,6 +123,7 @@ int		print_nbr(char *str, va_list ap, t_ptf_format *format);
 int		print_char(char *str, va_list ap, t_ptf_format *format);
 int		print_percent(char *str, va_list ap, t_ptf_format *format);
 int		print_str(char *str, va_list ap, t_ptf_format *format);
+int		print_octal(char *str, va_list ap, t_ptf_format *format);
 
 /*
 ** Utils

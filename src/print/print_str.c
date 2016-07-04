@@ -5,9 +5,10 @@
 ** Login   <bongol_b@epitech.net>
 **
 ** Started on  Mon Jul  4 00:16:07 2016 Berdrigue Bongolo-Beto
-** Last update Mon Jul  4 20:41:39 2016 Berdrigue Bongolo-Beto
+** Last update Mon Jul  4 22:15:19 2016 Berdrigue Bongolo-Beto
 */
 
+#include <stdlib.h>
 #include "my_printf.h"
 
 static char	*init_var_arg_string(va_list ap, t_print_elem *elem)
@@ -48,5 +49,5 @@ int		print_str(char *str, va_list ap, t_ptf_format *format)
       cp += print_nchar(' ', elem.width - elem.len_precision, str);
       check_print_limit_size(str, s);
     }
-  return (cp);
+  return (free(s), cp);
 }
