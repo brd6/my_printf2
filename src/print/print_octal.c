@@ -5,26 +5,13 @@
 ** Login   <bongol_b@epitech.net>
 **
 ** Started on  Mon Jul  4 20:45:52 2016 Berdrigue Bongolo-Beto
-** Last update Mon Jul  4 22:32:14 2016 Berdrigue Bongolo-Beto
+** Last update Tue Jul  5 20:50:25 2016 Berdrigue Bongolo-Beto
 */
 
 #include <stdlib.h>
 #include "my_printf.h"
 
-static char	*init_var_arg_string(va_list ap, t_print_elem *elem)
-{
-  char		*s;
-
-  s = printf_my_strndup((char *)va_arg(ap, char *), elem->len_precision);
-  if (s == NULL)
-    {
-      s = printf_my_strdup(STR_NULL_FLG);
-      elem->len_precision = printf_my_strlen(STR_NULL_FLG);
-    }
-  return (s);
-}
-
-static int	prt_cond(t_print_elem *elem,
+int		prt_cond(t_print_elem *elem,
 			 char *s,
 			 char *str,
 			 t_ptf_format *format)
@@ -42,10 +29,10 @@ static int	prt_cond(t_print_elem *elem,
     cp += print_nchar('0', elem->len_precision, str);
   check_print_limit_size(str, s);
   cp += print_nchar(' ', elem->width, str);
-  return (cp);
+  return (free(s), cp);
 }
 
-static int	prt_cond2(t_print_elem *elem,
+int		prt_cond2(t_print_elem *elem,
 			  char *s,
 			  char *str,
 			  t_ptf_format *format)
@@ -64,7 +51,7 @@ static int	prt_cond2(t_print_elem *elem,
   else
     cp += print_nchar('0', elem->len_precision, str);
   check_print_limit_size(str, s);
-  return (cp);
+  return (free(s), cp);
 }
 
 int		print_octal(char *str, va_list ap, t_ptf_format *format)
@@ -92,5 +79,5 @@ int		print_octal(char *str, va_list ap, t_ptf_format *format)
     cp = cp + prt_cond(&elem, s, str, format);
   else
     cp = cp + prt_cond2(&elem, s, str, format);
-  return (free(s), cp);
+  return (free(s2), cp);
 }

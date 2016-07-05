@@ -5,7 +5,7 @@
 ** Login   <bongol_b@epitech.net>
 **
 ** Started on  Sat Jun 25 21:30:03 2016 Berdrigue Bongolo-Beto
-** Last update Mon Jul  4 21:58:33 2016 Berdrigue Bongolo-Beto
+** Last update Tue Jul  5 20:47:13 2016 Berdrigue Bongolo-Beto
 */
 
 #ifndef MY_PRINTF_H_
@@ -119,11 +119,21 @@ int		nbr_space_handler(t_ptf_format *format,
 				  t_print_elem *elem,
 				  char *str);
 
+int		prt_cond(t_print_elem *elem,
+			 char *s,
+			 char *str,
+			 t_ptf_format *format);
+int		prt_cond2(t_print_elem *elem,
+			  char *s,
+			  char *str,
+			  t_ptf_format *format);
+
 int		print_nbr(char *str, va_list ap, t_ptf_format *format);
 int		print_char(char *str, va_list ap, t_ptf_format *format);
 int		print_percent(char *str, va_list ap, t_ptf_format *format);
 int		print_str(char *str, va_list ap, t_ptf_format *format);
 int		print_octal(char *str, va_list ap, t_ptf_format *format);
+int		print_unsigned_nbr(char *str, va_list ap, t_ptf_format *format);
 
 /*
 ** Utils
