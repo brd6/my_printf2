@@ -5,11 +5,13 @@
 ** Login   <bongol_b@epitech.net>
 **
 ** Started on  Sat Jun 25 21:30:03 2016 Berdrigue Bongolo-Beto
-** Last update Tue Jul  5 20:47:13 2016 Berdrigue Bongolo-Beto
+** Last update Tue Jul  5 21:49:17 2016 Berdrigue Bongolo-Beto
 */
 
 #ifndef MY_PRINTF_H_
 # define MY_PRINTF_H_
+
+#define GET_HEXA_BASE() ((format->conv_char == 'x') ? BASE_HEXA_L : BASE_HEXA_U)
 
 # define FD_ERROR		2
 # define FD_OUT			1
@@ -25,8 +27,13 @@
 # define MY_PRINTF_TAB_SIZE	12
 
 # define STR_NULL_FLG		"(null)"
+# define POINTER_NULL_FLG	"(nil)"
 # define BASE_DECIMAL		"0123456789"
 # define BASE_OCTAL		"01234567"
+# define BASE_HEXA_L		"0123456789abcdef"
+# define BASE_HEXA_U		"0123456789ABCDEF"
+# define HEXA_SYMBOL_L		"0x"
+# define HEXA_SYMBOL_U		"0X"
 
 # include <stddef.h>
 # include <stdarg.h>
@@ -134,6 +141,7 @@ int		print_percent(char *str, va_list ap, t_ptf_format *format);
 int		print_str(char *str, va_list ap, t_ptf_format *format);
 int		print_octal(char *str, va_list ap, t_ptf_format *format);
 int		print_unsigned_nbr(char *str, va_list ap, t_ptf_format *format);
+int		print_hexa(char *str, va_list ap, t_ptf_format *format);
 
 /*
 ** Utils

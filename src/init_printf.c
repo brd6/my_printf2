@@ -5,7 +5,7 @@
 ** Login   <bongol_b@epitech.net>
 **
 ** Started on  Sun Jun 26 00:51:57 2016 Berdrigue Bongolo-Beto
-** Last update Tue Jul  5 20:24:47 2016 Berdrigue Bongolo-Beto
+** Last update Tue Jul  5 21:29:21 2016 Berdrigue Bongolo-Beto
 */
 
 #include "my_printf.h"
@@ -42,5 +42,8 @@ void		init_printf_var(t_printf *tab)
   init_each_tab(&tab[i++], 's', &print_str);
   init_each_tab(&tab[i++], 'o', &print_octal);
   init_each_tab(&tab[i++], 'u', &print_unsigned_nbr);
+  init_each_tab(&tab[i++], 'x', &print_hexa);
+  init_each_tab(&tab[i++], 'X', &print_hexa);
+  init_each_tab(&tab[i++], 'p', &print_pointer);
   init_each_tab(&tab[i++], 0, NULL);
 }
