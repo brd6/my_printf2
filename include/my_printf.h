@@ -5,13 +5,15 @@
 ** Login   <bongol_b@epitech.net>
 **
 ** Started on  Sat Jun 25 21:30:03 2016 Berdrigue Bongolo-Beto
-** Last update Tue Jul  5 21:49:17 2016 Berdrigue Bongolo-Beto
+** Last update Wed Jul  6 20:24:32 2016 Berdrigue Bongolo-Beto
 */
 
 #ifndef MY_PRINTF_H_
 # define MY_PRINTF_H_
 
 #define GET_HEXA_BASE() ((format->conv_char == 'x') ? BASE_HEXA_L : BASE_HEXA_U)
+#define GET_HEXA_SYMBOL() ((format->conv_char == 'x') ? \
+			   HEXA_SYMBOL_L : HEXA_SYMBOL_U)
 
 # define FD_ERROR		2
 # define FD_OUT			1
@@ -142,6 +144,7 @@ int		print_str(char *str, va_list ap, t_ptf_format *format);
 int		print_octal(char *str, va_list ap, t_ptf_format *format);
 int		print_unsigned_nbr(char *str, va_list ap, t_ptf_format *format);
 int		print_hexa(char *str, va_list ap, t_ptf_format *format);
+int		print_pointer(char *str, va_list ap, t_ptf_format *format);
 
 /*
 ** Utils

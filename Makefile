@@ -5,7 +5,7 @@
 ## Login   <bongol_b@epitech.net>
 ## 
 ## Started on  Sat Jun 25 21:07:14 2016 Berdrigue Bongolo-Beto
-## Last update Tue Jul  5 21:10:50 2016 Berdrigue Bongolo-Beto
+## Last update Wed Jul  6 20:16:08 2016 Berdrigue Bongolo-Beto
 ##
 
 VERSION		=	RELEASE # DEBUG || RELEASE || PROFILE
@@ -49,6 +49,7 @@ PRINT_SRCS	=	$(ROOT_DIRECTORY)/print/print_nbr.c \
 			$(ROOT_DIRECTORY)/print/print_octal.c \
 			$(ROOT_DIRECTORY)/print/print_unsigned_nbr.c \
 			$(ROOT_DIRECTORY)/print/print_hexa.c \
+			$(ROOT_DIRECTORY)/print/print_pointer.c \
 			$(ROOT_DIRECTORY)/print/utils.c \
 			$(ROOT_DIRECTORY)/print/utils2.c \
 

@@ -5,7 +5,7 @@
 ** Login   <bongol_b@epitech.net>
 **
 ** Started on  Tue Jul  5 21:09:38 2016 Berdrigue Bongolo-Beto
-** Last update Tue Jul  5 21:20:19 2016 Berdrigue Bongolo-Beto
+** Last update Wed Jul  6 20:53:22 2016 Berdrigue Bongolo-Beto
 */
 
 #include <stdlib.h>
@@ -19,6 +19,43 @@ static void	reset_len_p(t_ptf_format *format, t_print_elem *elem)
       elem->len_precision = elem->width;
       elem->width = 0;
     }
+}
+
+static int	prt_cond_hexa2(t_print_elem *elem,
+			       char *s,
+			       t_ptf_format *format,
+			       char *str)
+{
+  int		cp;
+
+  if (getchar_pos(format->flags, '#') != -1 && elem->len_precision)
+    elem->width -= 2;
+  cp = print_nchar(' ', elem->width, str);
+  if (getchar_pos(format->flags, '#') != -1)
+    cp += check_print_limit_size(str, GET_HEXA_SYMBOL());
+  else
+    cp += print_nchar('0', elem->len_precision, str);
+  cp += check_print_limit_size(str, s);
+  return (cp);
+}
+
+static int	prt_cond_hexa(t_print_elem *elem,
+			      char *s,
+			      t_ptf_format *format,
+			      char *str)
+{
+  int		cp;
+
+  if (getchar_pos(format->flags, '#') != -1 && elem->len_precision == 0)
+    {
+      cp = check_print_limit_size(str, GET_HEXA_SYMBOL());
+      elem->width--;
+    }
+  else
+    cp = print_nchar('0', elem->len_precision, str);
+  cp += check_print_limit_size(str, s);
+  cp += print_nchar(' ', elem->width, str);
+  return (cp);
 }
 
 int		print_hexa(char *str, va_list ap, t_ptf_format *format)
@@ -43,8 +80,8 @@ int		print_hexa(char *str, va_list ap, t_ptf_format *format)
   cp = printf_my_strlen(s);
   check_width_and_precision2(&elem, s, format);
   if (getchar_pos(format->flags, '-') != -1)
-    cp = cp + prt_cond(&elem, s, str, format);
+    cp = cp + prt_cond_hexa(&elem, s, format, str);
   else
-    cp = cp + prt_cond2(&elem, s, str, format);
+    cp = cp + prt_cond_hexa2(&elem, s, format, str);
   return (free(s2), cp);
 }
