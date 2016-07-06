@@ -5,7 +5,7 @@
 ** Login   <bongol_b@epitech.net>
 **
 ** Started on  Sat Jun 25 21:30:03 2016 Berdrigue Bongolo-Beto
-** Last update Wed Jul  6 20:24:32 2016 Berdrigue Bongolo-Beto
+** Last update Wed Jul  6 21:10:16 2016 Berdrigue Bongolo-Beto
 */
 
 #ifndef MY_PRINTF_H_
@@ -145,6 +145,7 @@ int		print_octal(char *str, va_list ap, t_ptf_format *format);
 int		print_unsigned_nbr(char *str, va_list ap, t_ptf_format *format);
 int		print_hexa(char *str, va_list ap, t_ptf_format *format);
 int		print_pointer(char *str, va_list ap, t_ptf_format *format);
+int		print_ncount(char *str, va_list ap, t_ptf_format *format);
 
 /*
 ** Utils

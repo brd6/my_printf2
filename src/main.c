@@ -5,7 +5,7 @@
 ** Login   <bongol_b@epitech.net>
 **
 ** Started on  Sat Jun 25 21:10:21 2016 Berdrigue Bongolo-Beto
-** Last update Wed Jul  6 20:53:39 2016 Berdrigue Bongolo-Beto
+** Last update Wed Jul  6 21:13:20 2016 Berdrigue Bongolo-Beto
 */
 
 #include <stdlib.h>
@@ -16,6 +16,7 @@ int		main()
   char		*s;
   char		buff[100];
   int		ret;
+  int		n;
 
   s = NULL;
   buff[0] = 0;
@@ -26,11 +27,11 @@ int		main()
   /* ret = printf("'azc '%+3d''", 1); */
   /* printf("\nret: %d '%s'\n", ret, buff); */
 
-  ret = my_printf("'azc '%X''", 1201);
-  printf("\nret: %d '%s'\n", ret, buff);
+  ret = my_printf("'azc '%X'' %n", 1201, &n);
+  printf("\nret: %d '%s' n=%d\n", ret, buff, n);
 
-  ret = printf("'azc '%X''", 1201);
-  printf("\nret: %d '%s'\n", ret, buff);
+  ret = printf("'azc '%X'' %n", 1201, &n);
+  printf("\nret: %d '%s' n=%d\n", ret, buff, n);
 
 
   /* ret = printf("abc %c ok", 'c'); */
