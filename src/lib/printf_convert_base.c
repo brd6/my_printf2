@@ -5,7 +5,7 @@
 ** Login   <bongol_b@epitech.net>
 **
 ** Started on  Mon Jul  4 20:50:39 2016 Berdrigue Bongolo-Beto
-** Last update Mon Jul  4 22:18:41 2016 Berdrigue Bongolo-Beto
+** Last update Thu Jul  7 23:13:57 2016 Berdrigue Bongolo-Beto
 */
 
 #include <stdlib.h>
@@ -51,11 +51,12 @@ char		*printf_convert_base(const char *nbr,
   int		nbr_base;
   int		base_to_len;
 
-  i = 0;
+  i = printf_my_strlen(base_to) + printf_my_strlen(base_from);
   j = 0;
   neg = 0;
-  if ((s = malloc(sizeof(*s) * (printf_my_strlen(nbr) + 1))) == NULL)
+  if ((s = malloc(sizeof(*s) * (printf_my_strlen(nbr) + i + 1))) == NULL)
     return (NULL);
+  i = 0;
   if (nbr[i] == '-' && set_sign(s, &neg, &i, 0) == 1)
     j = 1;
   nbr_base = printf_my_getnbr_base((const char *)nbr + j, base_from);

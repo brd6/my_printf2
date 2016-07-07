@@ -5,7 +5,7 @@
 ** Login   <bongol_b@epitech.net>
 **
 ** Started on  Sat Jun 25 21:10:21 2016 Berdrigue Bongolo-Beto
-** Last update Thu Jul  7 20:10:24 2016 Berdrigue Bongolo-Beto
+** Last update Thu Jul  7 23:08:17 2016 Berdrigue Bongolo-Beto
 */
 
 #include <stdlib.h>
@@ -27,7 +27,7 @@ int		main()
   /* ret = printf("'azc '%+3d''", 1); */
   /* printf("\nret: %d '%s'\n", ret, buff); */
 
-  ret = my_printf("abc %s", "abc");
+  ret = my_printf("abc %b", 11);
 
   /* ret = printf("abc %c ok", 'c'); */
   /* ret = snprintf(buff, 0, "abc %c ok", 'c'); */

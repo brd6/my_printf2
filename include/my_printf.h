@@ -5,7 +5,7 @@
 ** Login   <bongol_b@epitech.net>
 **
 ** Started on  Sat Jun 25 21:30:03 2016 Berdrigue Bongolo-Beto
-** Last update Wed Jul  6 21:10:16 2016 Berdrigue Bongolo-Beto
+** Last update Thu Jul  7 23:07:47 2016 Berdrigue Bongolo-Beto
 */
 
 #ifndef MY_PRINTF_H_
@@ -26,7 +26,7 @@
 # define IS_PRINTF		-1
 
 # define ALLOW_FORMAT		"diouxXcsSpnb-+*.hl#%"
-# define MY_PRINTF_TAB_SIZE	12
+# define MY_PRINTF_TAB_SIZE	14
 
 # define STR_NULL_FLG		"(null)"
 # define POINTER_NULL_FLG	"(nil)"
@@ -34,6 +34,7 @@
 # define BASE_OCTAL		"01234567"
 # define BASE_HEXA_L		"0123456789abcdef"
 # define BASE_HEXA_U		"0123456789ABCDEF"
+# define BASE_BINARY		"01"
 # define HEXA_SYMBOL_L		"0x"
 # define HEXA_SYMBOL_U		"0X"
 
@@ -146,6 +147,7 @@ int		print_unsigned_nbr(char *str, va_list ap, t_ptf_format *format);
 int		print_hexa(char *str, va_list ap, t_ptf_format *format);
 int		print_pointer(char *str, va_list ap, t_ptf_format *format);
 int		print_ncount(char *str, va_list ap, t_ptf_format *format);
+int		print_binary(char *str, va_list ap, t_ptf_format *format);
 
 /*
 ** Utils
