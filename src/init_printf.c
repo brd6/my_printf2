@@ -5,7 +5,7 @@
 ** Login   <bongol_b@epitech.net>
 **
 ** Started on  Sun Jun 26 00:51:57 2016 Berdrigue Bongolo-Beto
-** Last update Thu Jul  7 23:01:25 2016 Berdrigue Bongolo-Beto
+** Last update Thu Jul  7 23:45:47 2016 Berdrigue Bongolo-Beto
 */
 
 #include "my_printf.h"
@@ -47,5 +47,6 @@ void		init_printf_var(t_printf *tab)
   init_each_tab(&tab[i++], 'p', &print_pointer);
   init_each_tab(&tab[i++], 'n', &print_ncount);
   init_each_tab(&tab[i++], 'b', &print_binary);
+  init_each_tab(&tab[i++], 'S', &print_str_large);
   init_each_tab(&tab[i++], 0, NULL);
 }
