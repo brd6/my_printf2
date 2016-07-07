@@ -5,7 +5,7 @@
 ** Login   <bongol_b@epitech.net>
 **
 ** Started on  Sun Jun 26 20:28:58 2016 Berdrigue Bongolo-Beto
-** Last update Sun Jul  3 11:20:49 2016 Berdrigue Bongolo-Beto
+** Last update Thu Jul  7 20:51:29 2016 Berdrigue Bongolo-Beto
 */
 
 #include "my_printf.h"
@@ -35,6 +35,8 @@ int		set_prec_len(int *len, t_ptf_format *ptf_format, va_list ap)
       *len = printf_my_atoi(ptf_format->precision);
       return (1);
     }
+  else
+    *len = 0;
   return (0);
 }
 

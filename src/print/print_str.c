@@ -5,7 +5,7 @@
 ** Login   <bongol_b@epitech.net>
 **
 ** Started on  Mon Jul  4 00:16:07 2016 Berdrigue Bongolo-Beto
-** Last update Mon Jul  4 22:15:19 2016 Berdrigue Bongolo-Beto
+** Last update Thu Jul  7 20:51:17 2016 Berdrigue Bongolo-Beto
 */
 
 #include <stdlib.h>
@@ -15,6 +15,7 @@ static char	*init_var_arg_string(va_list ap, t_print_elem *elem)
 {
   char		*s;
 
+  printf("=> %d\n", elem->len_precision);
   s = printf_my_strndup((char *)va_arg(ap, char *), elem->len_precision);
   if (s == NULL)
     {

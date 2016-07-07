@@ -5,7 +5,7 @@
 ** Login   <bongol_b@epitech.net>
 **
 ** Started on  Mon Jul  4 20:24:24 2016 Berdrigue Bongolo-Beto
-** Last update Mon Jul  4 20:30:20 2016 Berdrigue Bongolo-Beto
+** Last update Thu Jul  7 20:52:33 2016 Berdrigue Bongolo-Beto
 */
 
 #include <stdlib.h>
@@ -16,6 +16,7 @@ char		*printf_my_strndup(const char *s, int n)
   char		*ret;
   int		i;
 
+  n = (n < 1) ? printf_my_strlen(s) : n;
   if (s == NULL || (ret = malloc(sizeof(*s) * (n + 1))) == NULL)
     return (NULL);
   i = 0;
