@@ -5,7 +5,7 @@
 ** Login   <bongol_b@epitech.net>
 **
 ** Started on  Sat Jun 25 21:30:03 2016 Berdrigue Bongolo-Beto
-** Last update Fri Jul  8 21:01:12 2016 Berdrigue Bongolo-Beto
+** Last update Fri Jul  8 21:27:27 2016 Berdrigue Bongolo-Beto
 */
 
 #ifndef MY_PRINTF_H_
@@ -176,6 +176,5 @@ char		*printf_convert_base(const char *nbr,
 				     const char *base_from,
 				     const char *base_to);
 char		*printf_my_revstr(char *s);
-
 
 #endif /* !MY_PRINTF_H_ */

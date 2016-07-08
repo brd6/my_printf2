@@ -5,29 +5,10 @@
 ** Login   <bongol_b@epitech.net>
 **
 ** Started on  Sun Jun 26 01:16:22 2016 Berdrigue Bongolo-Beto
-** Last update Fri Jul  8 20:08:11 2016 Berdrigue Bongolo-Beto
+** Last update Fri Jul  8 21:26:49 2016 Berdrigue Bongolo-Beto
 */
 
 #include "my_printf.h"
-
-/*
-** To delete /!\
-*/
-int		check_format(const char *str)
-{
-  int		i;
-
-
-  i = 0;
-  while ((str && str[i]) &&
-	 (str[i] != '%' && is_num(str[i], 0) && !is_alpha(str[i], 0)))
-    {
-      if (str[i] != ' ')
-	return (0);
-      i++;
-    }
-  return (1);
-}
 
 int		check_next_char(const char *format)
 {

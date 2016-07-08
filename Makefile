@@ -5,7 +5,7 @@
 ## Login   <bongol_b@epitech.net>
 ## 
 ## Started on  Sat Jun 25 21:07:14 2016 Berdrigue Bongolo-Beto
-## Last update Fri Jul  8 20:47:33 2016 Berdrigue Bongolo-Beto
+## Last update Fri Jul  8 21:24:22 2016 Berdrigue Bongolo-Beto
 ##
 
 #VERSION		=	RELEASE # DEBUG || RELEASE || PROFILE
@@ -82,7 +82,6 @@ SRCS		= 	$(ROOT_DIRECTORY)/printf_handler.c \
 			$(ROOT_DIRECTORY)/utils.c \
 
 TEST_SRCS	=	$(ROOT_DIRECTORY)/main.c \
-			#$(SRCS)
 
 OBJS		= 	$(SRCS:.c=.o)
 
@@ -94,7 +93,7 @@ CFLAGS		+=	-I./include/
 
 LDFLAGS 	+=	-L./ -lmy_printf
 
-all: $(NAME) test
+all: $(NAME)
 
 $(NAME): $(OBJS)
 	@$(AR) $(NAME) $(OBJS)

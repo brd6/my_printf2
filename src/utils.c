@@ -5,7 +5,7 @@
 ** Login   <bongol_b@epitech.net>
 **
 ** Started on  Sun Jun 26 01:20:02 2016 Berdrigue Bongolo-Beto
-** Last update Fri Jul  8 21:03:32 2016 Berdrigue Bongolo-Beto
+** Last update Fri Jul  8 21:26:26 2016 Berdrigue Bongolo-Beto
 */
 
 void		skip_char(const char *str, int *i, char c)
