@@ -5,7 +5,7 @@
 ** Login   <bongol_b@epitech.net>
 **
 ** Started on  Sun Jun 26 01:20:02 2016 Berdrigue Bongolo-Beto
-** Last update Sun Jun 26 01:41:26 2016 Berdrigue Bongolo-Beto
+** Last update Fri Jul  8 21:03:32 2016 Berdrigue Bongolo-Beto
 */
 
 void		skip_char(const char *str, int *i, char c)
@@ -20,8 +20,7 @@ int		is_alpha(char c, int flag)
     return ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'));
   else if (flag == 1)
     return (c >= 'a' && c <= 'z');
-  else if (flag == 2)
-    return (c >= 'A' && c <= 'Z');
+  return (c >= 'A' && c <= 'Z');
 }
 
 int		is_num(char c, int flag)

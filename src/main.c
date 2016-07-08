@@ -5,32 +5,16 @@
 ** Login   <bongol_b@epitech.net>
 **
 ** Started on  Sat Jun 25 21:10:21 2016 Berdrigue Bongolo-Beto
-** Last update Thu Jul  7 23:08:17 2016 Berdrigue Bongolo-Beto
+** Last update Fri Jul  8 21:17:03 2016 Berdrigue Bongolo-Beto
 */
 
-#include <stdlib.h>
 #include "my_printf.h"
 
 int		main()
 {
-  char		*s;
-  char		buff[100];
-  int		ret;
-  int		n;
+  int		i;
 
-  s = NULL;
-  buff[0] = 0;
-  /* ret = my_printf("abc %c ok", 'c'); */
-  /* ret = my_printf("'azc '%+3d''", 1); */
-  /* printf("\nret: %d '%s'\n", ret, buff); */
-
-  /* ret = printf("'azc '%+3d''", 1); */
-  /* printf("\nret: %d '%s'\n", ret, buff); */
-
-  ret = my_printf("abc %b", 11);
-
-  /* ret = printf("abc %c ok", 'c'); */
-  /* ret = snprintf(buff, 0, "abc %c ok", 'c'); */
-  /* printf("ret: %d '%s'\n", ret, buff); */
-  return (EXIT_SUCCESS);
+  i = my_printf("abc %s\n", "abc");
+  my_printf("i=%d\n", i);
+  return (0);
 }

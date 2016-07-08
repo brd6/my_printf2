@@ -5,7 +5,7 @@
 ** Login   <bongol_b@epitech.net>
 **
 ** Started on  Sun Jun 26 20:28:58 2016 Berdrigue Bongolo-Beto
-** Last update Thu Jul  7 20:51:29 2016 Berdrigue Bongolo-Beto
+** Last update Fri Jul  8 21:00:11 2016 Berdrigue Bongolo-Beto
 */
 
 #include "my_printf.h"
@@ -52,6 +52,7 @@ void		check_width_and_precision(t_print_elem *elem,
 					  int nbr,
 					  t_ptf_format *ptf_f)
 {
+  (void)(ptf_f);
   if (elem->len_precision > printf_nbr_len(nbr))
     elem->len_precision = elem->len_precision - printf_nbr_len(nbr);
   else
@@ -66,6 +67,7 @@ void		check_width_and_precision2(t_print_elem *elem,
 					   char *s,
 					   t_ptf_format *ptf)
 {
+  (void)(ptf);
   if (elem->len_precision > printf_my_strlen(s))
     elem->len_precision = elem->len_precision - printf_my_strlen(s);
   else

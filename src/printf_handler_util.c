@@ -5,7 +5,7 @@
 ** Login   <bongol_b@epitech.net>
 **
 ** Started on  Sun Jun 26 01:16:22 2016 Berdrigue Bongolo-Beto
-** Last update Sat Jul  2 19:32:14 2016 Berdrigue Bongolo-Beto
+** Last update Fri Jul  8 20:08:11 2016 Berdrigue Bongolo-Beto
 */
 
 #include "my_printf.h"
@@ -52,7 +52,7 @@ int		check_print_limit_size(char *str, const char *s)
   if (str == NULL && s == NULL)
     return (check);
   if (check)
-    printf_my_strcpy(s, &str[g_prog.i]);
+    printf_my_strcpy(&str[g_prog.i], s);
   else
     printf_my_putstr(g_prog.fd, s);
   len = printf_my_strlen(s);

@@ -5,7 +5,7 @@
 ** Login   <bongol_b@epitech.net>
 **
 ** Started on  Sat Jun 25 21:30:03 2016 Berdrigue Bongolo-Beto
-** Last update Thu Jul  7 23:07:47 2016 Berdrigue Bongolo-Beto
+** Last update Fri Jul  8 21:01:12 2016 Berdrigue Bongolo-Beto
 */
 
 #ifndef MY_PRINTF_H_
@@ -122,7 +122,7 @@ void		check_width_and_precision(t_print_elem *elem,
 					  t_ptf_format *ptf_f);
 void		check_width_and_precision2(t_print_elem *elem,
 					   char *s,
-					   t_ptf_format *ptf);
+					   t_ptf_format *ptf_f);
 int		check_print_limit_size(char *str, const char *s);
 int		nbr_space_handler(t_ptf_format *format,
 				  int nbr,
@@ -166,7 +166,7 @@ char		*printf_my_strdup(const char *s);
 char		*printf_my_strndup(const char *s, int n);
 char		*printf_my_getstr(const char *s, int (*cmp)(char));
 char		*printf_my_itoa(int nbr);
-char		*printf_my_strcpy(const char *src, char *str);
+char		*printf_my_strcpy(char *dest, const char *src);
 int		printf_my_putstr(int fd, const char *s);
 int		printf_my_putchar(int fd, char c);
 int		printf_my_atoi(const char *nbr);

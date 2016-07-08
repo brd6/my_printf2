@@ -5,7 +5,7 @@
 ** Login   <bongol_b@epitech.net>
 **
 ** Started on  Sun Jun 26 13:13:18 2016 Berdrigue Bongolo-Beto
-** Last update Sun Jun 26 20:50:56 2016 Berdrigue Bongolo-Beto
+** Last update Fri Jul  8 20:20:05 2016 Berdrigue Bongolo-Beto
 */
 
 #include <stdlib.h>
@@ -30,7 +30,7 @@ char		*printf_my_itoa(int nbr)
   char		*str;
   int		i;
 
-  if ((str = malloc(printf_nbr_len(nbr) + 1)) == NULL)
+  if ((str = malloc(sizeof(*str) * (printf_nbr_len(nbr) + 2))) == NULL)
     return (NULL);
   i = 0;
   if (nbr < 0)

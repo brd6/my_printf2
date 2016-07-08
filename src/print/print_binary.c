@@ -5,7 +5,7 @@
 ** Login   <bongol_b@epitech.net>
 **
 ** Started on  Wed Jul  6 21:40:59 2016 Berdrigue Bongolo-Beto
-** Last update Thu Jul  7 23:34:31 2016 Berdrigue Bongolo-Beto
+** Last update Fri Jul  8 20:55:51 2016 Berdrigue Bongolo-Beto
 */
 
 #include <stdlib.h>
@@ -18,11 +18,12 @@ int		print_binary(char *str, va_list ap, t_ptf_format *format)
   char		*s2;
   int		cp;
 
+  (void)(format);
   nbr = va_arg(ap, int);
   s2 = printf_my_itoa(nbr);
   s = printf_convert_base(s2, BASE_DECIMAL, BASE_BINARY);
   cp = check_print_limit_size(str, s);
   free(s);
   free(s2);
-  return (0);
+  return (cp);
 }

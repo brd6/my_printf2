@@ -5,16 +5,18 @@
 ## Login   <bongol_b@epitech.net>
 ## 
 ## Started on  Sat Jun 25 21:07:14 2016 Berdrigue Bongolo-Beto
-## Last update Thu Jul  7 23:01:11 2016 Berdrigue Bongolo-Beto
+## Last update Fri Jul  8 20:47:33 2016 Berdrigue Bongolo-Beto
 ##
 
-VERSION		=	RELEASE # DEBUG || RELEASE || PROFILE
+#VERSION		=	RELEASE # DEBUG || RELEASE || PROFILE
 
-DEBUG_CFLAGS	=	-g3 #-DDEBUG || -DNDEBUG
+DEBUG_CFLAGS	=	-g3 # -DNDEBUG
 
 PROFILE_CFLAGS	=	-pg
 
 RELEASE_CFLAGS	=	-W -Wall -Wextra -Werror
+
+VERSION = RELEASE
 
 ifeq "$(VERSION)" "PROFILE"
 	CFLAGS = $(PROFILE_CFLAGS)

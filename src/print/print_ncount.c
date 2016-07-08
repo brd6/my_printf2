@@ -5,7 +5,7 @@
 ** Login   <bongol_b@epitech.net>
 **
 ** Started on  Wed Jul  6 21:02:02 2016 Berdrigue Bongolo-Beto
-** Last update Wed Jul  6 21:14:04 2016 Berdrigue Bongolo-Beto
+** Last update Fri Jul  8 20:55:16 2016 Berdrigue Bongolo-Beto
 */
 
 #include "my_printf.h"
@@ -14,7 +14,9 @@ int		print_ncount(char *str, va_list ap, t_ptf_format *format)
 {
   int		*nbr;
 
+  (void)(str);
+  (void)(format);
   nbr = va_arg(ap, int *);
-  printf("=> %s\n", format->field_width);
+  *nbr = g_prog.i;
   return (0);
 }

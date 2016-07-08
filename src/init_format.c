@@ -5,7 +5,7 @@
 ** Login   <bongol_b@epitech.net>
 **
 ** Started on  Sun Jun 26 11:47:30 2016 Berdrigue Bongolo-Beto
-** Last update Sat Jul  2 19:16:41 2016 Berdrigue Bongolo-Beto
+** Last update Fri Jul  8 21:02:05 2016 Berdrigue Bongolo-Beto
 */
 
 #include "my_printf.h"
@@ -64,7 +64,6 @@ static int	init_field_width(const char *format,
 
 static void	init_precision(const char *format,
 			       int *i,
-			       int *var_set,
 			       t_ptf_format *pt_form)
 {
   if (format[*i - 1] == '.' && format[*i] != '*')
@@ -88,7 +87,7 @@ int		init_ptf_format(const char *format,
       skip_char(format, i, ' ');
       if (!init_field_width(format, i, &var_set, ptf_format))
 	return (0);
-      init_precision(format, i, &var_set, ptf_format);
+      init_precision(format, i, ptf_format);
       if (getchar_pos("hl", format[*i]) != -1)
 	ptf_format->length_modifier = format[*i];
       else if (is_alpha(format[*i], 0) || format[*i] == '%')

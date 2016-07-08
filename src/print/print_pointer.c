@@ -5,7 +5,7 @@
 ** Login   <bongol_b@epitech.net>
 **
 ** Started on  Tue Jul  5 21:29:59 2016 Berdrigue Bongolo-Beto
-** Last update Wed Jul  6 20:18:41 2016 Berdrigue Bongolo-Beto
+** Last update Fri Jul  8 20:54:22 2016 Berdrigue Bongolo-Beto
 */
 
 #include <stdlib.h>
@@ -18,6 +18,7 @@ int		print_pointer(char *str, va_list ap, t_ptf_format *format)
   char		*s;
   char		*s2;
 
+  (void)(format);
   nbr = va_arg(ap, unsigned int);
   if (nbr <= 0)
     cp = check_print_limit_size(str, POINTER_NULL_FLG);
